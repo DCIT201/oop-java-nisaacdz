@@ -4,8 +4,11 @@ import com.example.Rentals;
 public class CarRentingTest {
     public static void main(String[] args) {
         System.out.println("\nHello world!");
+        // Supplier to generate new car instances seamlessly
         Car.CarSupplier carSupplier = new Car.CarSupplier();
 
+        // This will create 12 cars behind the scenes
+        // These cars can be viewed via the `exploreVehicles` method
         Rentals<Car, Car.CarSupplier> carRentals = new Rentals<>(carSupplier, 12);
 
         var allCars = carRentals.exploreVehicles();

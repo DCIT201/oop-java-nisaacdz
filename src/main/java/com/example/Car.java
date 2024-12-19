@@ -3,8 +3,21 @@ package com.example;
 import java.util.Objects;
 import java.util.Random;
 
+/**
+ * Represents a car which is a type of vehicle.
+ */
 public class Car extends Vehicle {
+
+    /**
+     * Supplies new instances of Car.
+     */
     public static class CarSupplier implements Supplier<Car> {
+
+        /**
+         * Creates and returns a new Car instance with random properties.
+         *
+         * @return a new Car instance.
+         */
         @Override
         public Car getNew() {
             Random random = new Random();
@@ -19,14 +32,26 @@ public class Car extends Vehicle {
         }
     }
 
+    /**
+     * Enum representing different types of cars.
+     */
     public static enum CarType {
         SEDAN, SUV, TRUCK, COUPE, CONVERTIBLE, HATCHBACK, WAGON, VAN, JEEP, PICKUP
     }
 
+    /**
+     * Enum representing different car manufacturers.
+     */
     public static enum CarMake {
         TOYOTA, HONDA, FORD, CHEVROLET, NISSAN, DODGE, JEEP, SUBARU, BMW, MERCEDES
     }
 
+    /**
+     * Gets the rate for a specific car type.
+     *
+     * @param carType the type of car.
+     * @return the rate for the car type.
+     */
     private static double rate(CarType carType) {
         switch (carType) {
             case SEDAN:
@@ -54,6 +79,12 @@ public class Car extends Vehicle {
         }
     }
 
+    /**
+     * Gets the rate for a specific car make.
+     *
+     * @param carMake the manufacturer of the car.
+     * @return the rate for the car make.
+     */
     private static double rate(CarMake carMake) {
         switch (carMake) {
             case TOYOTA:
@@ -84,21 +115,43 @@ public class Car extends Vehicle {
     private CarType carType;
     private CarMake carMake;
 
+    /**
+     * Calculates the rental cost for the car based on the number of days.
+     *
+     * @param days the number of days the car is rented.
+     * @return the rental cost.
+     */
     @Override
     public double calculateRentalCost(int days) {
         return rate(this.carType) * rate(this.carMake) * days;
     }
 
+    /**
+     * Returns a string representation of the car.
+     *
+     * @return a string representation of the car.
+     */
     @Override
     public String toString() {
         return "Car{" + "vehicleId='" + vehicleId + '\'' + ", carType=" + carType + ", carMake=" + carMake + '}';
     }
 
+    /**
+     * Returns the hash code for the car.
+     *
+     * @return the hash code for the car.
+     */
     @Override
     public int hashCode() {
         return Objects.hash(vehicleId, carType, carMake);
     }
 
+    /**
+     * Compares this car to another object for equality.
+     *
+     * @param obj the object to compare to.
+     * @return true if the objects are equal, false otherwise.
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

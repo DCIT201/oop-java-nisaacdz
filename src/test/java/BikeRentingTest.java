@@ -4,8 +4,11 @@ import com.example.Rentals;
 public class BikeRentingTest {
     public static void main(String[] args) {
         System.out.println("\nHello world!");
+        // supplier to pass to the rentalService
         CampusBike.BikeSupplier bikeSupplier = new CampusBike.BikeSupplier();
 
+        // This will create 12 bikes behind the scenes
+        // These bikes can be viewed via the `exploreVehicles` method
         Rentals<CampusBike, CampusBike.BikeSupplier> bikeRentals = new Rentals<>(bikeSupplier, 12);
 
         var allCampusBikes = bikeRentals.exploreVehicles();
