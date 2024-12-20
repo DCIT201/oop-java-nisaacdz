@@ -153,3 +153,17 @@ Each vehicle class must implement unique:
 - Documentation: 5%
 
 Good luck, and happy coding-Joe!
+
+# Solution Explantion
+- I created a `Vehicle` abstract class that constains
+  - `vehicleId`
+  - `model`
+  - `baseRentalRate`
+  - `isAvailable`
+  - `calculateRentalCost(int days)` for calculating the rental cost
+  - `isAvailableForRental()` for checking if the vehicle is available for rental
+  - static method `generateRandomString(int length)` for generating random vehicleId which was necessary for using for different vehicles
+- I created a Customer class to model the customer
+- I created a `Rentals` interface that handles rentals of vehicles of any type that implements `Vehicle`. Acts as a contract for all vehicles
+- I added `Car`, `Motorcycle`, `Truck` and `CampusBike` classes that implement the `Vehicle` abstract class
+- I created test classes for each vehicle type to test the functionalities

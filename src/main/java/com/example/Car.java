@@ -53,30 +53,19 @@ public class Car extends Vehicle {
      * @return the rate for the car type.
      */
     private static double rate(CarType carType) {
-        switch (carType) {
-            case SEDAN:
-                return 50;
-            case SUV:
-                return 100;
-            case TRUCK:
-                return 150;
-            case COUPE:
-                return 75;
-            case CONVERTIBLE:
-                return 125;
-            case HATCHBACK:
-                return 60;
-            case WAGON:
-                return 70;
-            case VAN:
-                return 200;
-            case JEEP:
-                return 120;
-            case PICKUP:
-                return 175;
-            default:
-                return 1;
-        }
+        return switch (carType) {
+            case SEDAN -> 50;
+            case SUV -> 100;
+            case TRUCK -> 150;
+            case COUPE -> 75;
+            case CONVERTIBLE -> 125;
+            case HATCHBACK -> 60;
+            case WAGON -> 70;
+            case VAN -> 200;
+            case JEEP -> 120;
+            case PICKUP -> 175;
+            default -> 1;
+        };
     }
 
     /**
@@ -86,30 +75,19 @@ public class Car extends Vehicle {
      * @return the rate for the car make.
      */
     private static double rate(CarMake carMake) {
-        switch (carMake) {
-            case TOYOTA:
-                return 50;
-            case HONDA:
-                return 60;
-            case FORD:
-                return 70;
-            case CHEVROLET:
-                return 75;
-            case NISSAN:
-                return 65;
-            case DODGE:
-                return 80;
-            case JEEP:
-                return 120;
-            case SUBARU:
-                return 70;
-            case BMW:
-                return 100;
-            case MERCEDES:
-                return 110;
-            default:
-                return 1;
-        }
+        return switch (carMake) {
+            case TOYOTA -> 50;
+            case HONDA -> 60;
+            case FORD -> 70;
+            case CHEVROLET -> 75;
+            case NISSAN -> 65;
+            case DODGE -> 80;
+            case JEEP -> 120;
+            case SUBARU -> 70;
+            case BMW -> 100;
+            case MERCEDES -> 110;
+            default -> 1;
+        };
     }
 
     private CarType carType;
